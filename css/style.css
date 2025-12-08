@@ -1,0 +1,72 @@
+@font-face {
+    font-family: "Karla";
+    src: url('../assets/fonts/Karla-VariableFont_wght.ttf') format("truetype") /* It provides hint that allows the browser to quickly decide if it can use the file without needing to download the entire file first, which can speed up page loading*/;
+
+    font-weight: 100 900;
+
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Karla";
+    src: url('../assets/fonts/Karla-Italic-VariableFont_wght.ttf') format(truetype);
+
+    font-weight: 100 900;
+
+    font-style: italic;
+}
+
+/* ** CSS Variables (custom properties) */
+
+:root{
+    /* Background colors */
+    --bg-page: #e0f1e7;
+    --bg-card: #fff;
+    --bg-success: #fff;
+
+    /* Border Colors */
+    --border: #cad9cf;
+    --border-strong: #0c7d69;
+    --border-error: #d73c3c;
+
+    /* Text colors */
+    --text-main: #1f3330;
+    --text-muted: #6c7c77;
+    --text-main: #d73c3c;
+
+    /* Button colors */
+    --btn-bg: #0c7d69;
+    --btn-bg-hover: #063f38;
+    --btn-text: #fff;
+
+    /* Border radius value */
+    --radius-card: 18px;
+    --radius-input: 8px;
+
+    /* Shadow effects */
+    --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.25);
+    --shadow-card: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* ** Global styles (Applied to entire page) */
+/* Apply border-box sizing to ALL elements and pseudo-elements, this makes padding and border included in element's total width/height  */
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
+/* Reset default margin and padding on html and body elements */
+html,
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Karla",
+    system-ui, apple-system, BlinkMacSystemFont, 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    color: var(--text-main);
+    background-color: var(--bg-page);
+}
+
+/* Ensure body takes at least full viewport height */
