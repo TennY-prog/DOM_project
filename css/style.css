@@ -32,7 +32,7 @@
     /* Text colors */
     --text-main: #1f3330;
     --text-muted: #6c7c77;
-    --text-main: #d73c3c;
+    --text-error: #d73c3c;
 
     /* Button colors */
     --btn-bg: #0c7d69;
@@ -70,3 +70,139 @@ body{
 }
 
 /* Ensure body takes at least full viewport height */
+
+body{
+    min-height: 100vh;
+}
+
+.page-wrapper{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 26px;
+}
+
+.card{
+    position: relative;
+    width: 100%;
+    max-width: 720px;
+    background-color: var(--bg-card);
+    border-radius: var(--radius-card);
+    padding: 32px 32px 36px;
+    box-shadow: var(--shadow-card);
+}
+
+/* Main title inside the card */
+.card-title{
+    margin: 0 0 24px;
+    font-size: 1.6rem;
+}
+
+/* Form Elements */
+.form-row{
+    display: grid;
+    /* Two equal columns */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.form-control{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 18px;
+    font-size: 0.95rem;
+}
+
+/* Style for labels and legends (fieldset title) */
+.form-control label,
+.form-control legend{
+    font-weight: 600;
+}
+
+.form-control legend{
+    margin-bottom: 4px;
+}
+
+.required{
+    color: var(--border-strong);
+}
+
+/* Base styles for text inputs, email inputs, and text areas */
+input[type="text"],
+input[type="email"],
+textarea{
+    font: inherit;
+    padding: 10px 12px;
+    border-radius: var(--radius-input);
+    border: 1px solid var(--border);
+    outline: none;
+    
+}
+
+/* Smooth transitions for border, shadow, and backgroung changes */
+/* transition: border-color 0.2s ease,
+box-shadow 0.2s ease, 
+backgroung-color 0.2s ease, */
+
+/* Make textarea resizable only vertically (up/down) */
+textarea{
+    resize: vertical;
+    min-height: 120px; /* Ensures the textarea's rendered height is never less than 120 pixels, even if the user tries to shrink it */
+}
+
+/* When user clicks/tabs into an input field */
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus{
+    border-color: var(--border-strong); /* Change border to strong green */
+    box-shadow:  0 0 0 1px rgba(12, 125, 105, 0.2); /* Green glow effect */
+}
+
+/* Error states (Applied via javascript) */
+/* When .error class is added to form-control by javascript */
+
+.form-control.error input[type="text"],
+.form-control.error input[type="email"],
+.form-control.error textarea,
+.form-control.error fieldset{
+    border-color: var(--border-error); /* Red border for errors */
+}
+
+/* Show error message when .error class is present */
+.form-control.error .error-message{
+    display: block; /* change from 'none' to 'block' */
+}
+
+/* Error message styling (hidden by default) */
+.error-message{
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--text-error); /* Red text color */
+    display: none; /* Hidden by default, shown via JS */
+}
+
+/* Remove default fieldset border and padding */
+fieldset.form-control{
+    border: none;
+    padding: 0;
+}
+
+/* Container for the two radio options */
+.query-options{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* Two equal columns */
+    gap: 12px; /* 12px gap between options */
+}
+
+.query-options{
+    position: relative;
+    cursor: pointer;
+}
+
+.query-options input{
+    position: absolute; /* Take out of normal document flow */
+    opacity: 0; /* Make invisible (but still clickable)  */
+    pointer-events: none; /* Prevent mouse events on the input itself. */
+}

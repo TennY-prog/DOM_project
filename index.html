@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="page-wrapper">
@@ -31,10 +31,18 @@
                 <div class="form-row">
                     <!-- Custom data attribute in HTML, it is used to store extra information without affecting how the elements look -->
                     <div class="form-control" data-field="firstName">
-
                         <label for="firstName">
                             <!-- The"For" element is used to bind elements together -->
                             First Name <span class="required">*</span>
+                        </label>
+                        <input type="text" id="firstName" name="firstName">
+                        <p class="error-message" id="firstNameError"></p>
+                    </div>
+
+                    <div class="form-control" data-field="lastName">
+                        <label for="lastName">
+                            <!-- The"For" element is used to bind elements together -->
+                            Last Name <span class="required">*</span>
                         </label>
                         <input type="text" id="lastName" name="lastName">
                         <p class="error-message" id="lastNameError"></p>
